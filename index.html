@@ -19,11 +19,11 @@
       }
     </style>
   </head>
-  <body class="font-saira bg-gray-100 min-h-screen p-8">
+  <body class="font-saira min-h-screen p-8">
     <div class="bg-red-500 p-8 rounded shadow-md text-white">
       <div id="result" class="mb-4">
         <!-- Display rank (number) next to the name -->
-        <p id="userInfo" class="text-lg font-bold mb-2"></p>
+        <p id="userName" class="text-lg font-bold mb-2"></p>
       </div>
     </div>
 
@@ -36,15 +36,15 @@
           );
           const leaderboardData = await response.json();
 
-          const username = "KJewls#6264"; // change username
+          const username = "KJewls#6264"; // Hardcoded username
           const user = leaderboardData.find(
             (entry) => entry.name.toLowerCase() === username.toLowerCase()
           );
 
           if (user) {
-            // Display user info
+            // Display rank (number) next to the name
             document.getElementById(
-              "userInfo"
+              "userName"
             ).innerText = `Rank: ${user.r}, Name: ${user.name}`;
           } else {
             // If user is not found in the leaderboard
